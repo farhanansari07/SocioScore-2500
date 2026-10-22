@@ -2,6 +2,8 @@
 import { useState } from "react";
 import "./App.css";
 
+import CitizenDashboard from "./components/CitizenDashboard";
+
 const socialClasses = [
   { name: "Elite", tier: "PLATINUM", range: "90–100", color: "#e6c889", description: "Premium access to society's finest services." },
   { name: "Gold", tier: "UPPER CLASS", range: "80–89", color: "#d6a86a", description: "Priority access and enhanced privileges." },
@@ -19,6 +21,10 @@ const steps = [
 
 function App() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [showDashboard, setShowDashboard] = useState(false);
+  if (showDashboard) {
+  return <CitizenDashboard onBack={() => setShowDashboard(false)} />;
+ }
 
   return (
     <div className="site-shell">
@@ -41,7 +47,17 @@ function App() {
           <a href="#system" onClick={() => setMenuOpen(false)}>The System</a>
           <a href="#classes" onClick={() => setMenuOpen(false)}>Social Classes</a>
           <a href="#how-it-works" onClick={() => setMenuOpen(false)}>How It Works</a>
-          <a className="nav-login" href="#access" onClick={() => setMenuOpen(false)}>Citizen Access ↗</a>
+          
+          <button
+            className="nav-login"
+            onClick={() => {
+              setMenuOpen(false);
+              setShowDashboard(true);
+            }}
+          >
+            Citizen Access ↗
+           </button>
+
         </nav>
       </header>
 
