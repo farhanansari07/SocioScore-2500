@@ -1,0 +1,23 @@
+@'
+node_modules/
+client/node_modules/
+server/node_modules/
+
+.env
+.env.*
+!.env.example
+client/.env
+client/.env.*
+!client/.env.example
+server/.env
+server/.env.*
+!server/.env.example
+
+client/dist/
+server/dist/
+dist/
+
+*.log
+.DS_Store
+Thumbs.db
+'@ | Set-Content -Path "D:\Projects\SocioScore-2500\.gitignore"
